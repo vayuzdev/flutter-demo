@@ -39,6 +39,7 @@ class _StoryBoxState extends State<StoryBox> {
           child: Padding(
             padding: EdgeInsets.all(10.0),
             child: Column(
+              mainAxisSize: MainAxisSize.max,
               children: <Widget>[
                 Row(
                   children: <Widget>[
@@ -54,58 +55,60 @@ class _StoryBoxState extends State<StoryBox> {
                     )
                   ],
                 ),
+//                Expanded(
+//                    child: new Container(
+//                        child: ListView.builder(
+//                  scrollDirection: Axis.horizontal,
+//                  itemCount: storyList.length,
+//                  itemBuilder: (context, index) {
+//                    var story = storyList[index];
+//
+//                    // สร้าง Story card
+//                    return Container(
+//                      margin: EdgeInsets.only(right: 5.0),
+//                      width: 120.0,
+//                      child: Stack(
+//                        fit: StackFit.expand,
+//                        children: <Widget>[
+//                          // ภาพ background
+//                          Container(
+//                            decoration: BoxDecoration(
+//                                borderRadius:
+//                                    BorderRadius.all(Radius.circular(5.0)),
+//                                image: DecorationImage(
+//                                    fit: BoxFit.cover,
+//                                    image: NetworkImage(
+//                                        story.backgroundImageURL))),
+//                          ),
+//                          // ภาพ และชื่อคนอัพ story
+//                          Positioned(
+//                            bottom: 10.0,
+//                            left: 0.0,
+//                            right: 0.0,
+//                            child: Column(
+//                              children: <Widget>[
+//                                CircleAvatar(
+//                                  backgroundImage:
+//                                      NetworkImage(story.profileImageURL),
+//                                ),
+//                                Text(
+//                                  story.username,
+//                                  style: TextStyle(
+//                                    color: Colors.white,
+//                                    fontWeight: FontWeight.w400,
+//                                  ),
+//                                )
+//                              ],
+//                            ),
+//                          )
+//                        ],
+//                      ),
+//                    );
+//                  },
+//                ))),
                 Expanded(
-                    child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: storyList.length,
-                  itemBuilder: (context, index) {
-                    var story = storyList[index];
-
-                    // สร้าง Story card
-                    return Container(
-                      margin: EdgeInsets.only(right: 5.0),
-                      width: 120.0,
-                      child: Stack(
-                        fit: StackFit.expand,
-                        children: <Widget>[
-                          // ภาพ background
-                          Container(
-                            decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(5.0)),
-                                image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image: NetworkImage(
-                                        story.backgroundImageURL))),
-                          ),
-                          // ภาพ และชื่อคนอัพ story
-                          Positioned(
-                            bottom: 10.0,
-                            left: 0.0,
-                            right: 0.0,
-                            child: Column(
-                              children: <Widget>[
-                                CircleAvatar(
-                                  backgroundImage:
-                                      NetworkImage(story.profileImageURL),
-                                ),
-                                Text(
-                                  story.username,
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    );
-                  },
-                )),
-                Expanded(
-                  child: ListView.builder(
+                  child: new Container(
+                      child: ListView.builder(
                     itemCount: items.length,
                     itemBuilder: (context, index) {
                       return new Stack(
@@ -130,7 +133,7 @@ class _StoryBoxState extends State<StoryBox> {
                         ],
                       );
                     },
-                  ),
+                  )),
                 )
               ],
             ),

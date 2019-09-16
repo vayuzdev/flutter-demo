@@ -1,3 +1,4 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:social/ui/tabs_screen.dart';
@@ -37,18 +38,38 @@ class _SecondScreenPageState extends State<HomePageSection> {
                 icon: Icon(Icons.arrow_back),
                 onPressed: () => Navigator.of(context).pop())),
         body: Container(
-          child: new Center(
+          child: new Column(children: <Widget>[
+            new Center(
               child: new RaisedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => TabBarDemo()),
-              );
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => TabBarDemo()),
+                  );
 
-              ///this context is passed from firstScreen
-            },
-            child: new Text('Go To Tabs'),
-          )),
+                  ///this context is passed from firstScreen
+                },
+                child: new Text('Go To Tabs'),
+
+              ),
+
+            ),
+            new Center(
+              child: new RaisedButton(
+                onPressed: () {
+//                  Navigator.push(
+//                    context,
+//                    MaterialPageRoute(builder: (context) => InstaHome()),
+//                  );
+
+                  ///this context is passed from firstScreen
+                },
+                child: new Text('Go To Insta'),
+
+              ),
+
+            )
+          ],),
         ));
   }
 }

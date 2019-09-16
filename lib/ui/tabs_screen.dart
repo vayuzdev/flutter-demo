@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:social/ui/story_box.dart';
+import 'package:social/ui/trending_widget.dart';
 
 import 'customised_list_view.dart';
 
@@ -16,9 +17,9 @@ class TabBarDemo extends StatefulWidget {
 class _TabBarDemo extends State<TabBarDemo> {
   int _currentIndex = 0;
   final List<Widget> _children = [
-    CustomisedListView(),
+    Trending(),
     StoryBox(),
-    PlaceholderWidget(Colors.green)
+    Trending()
   ];
 
   @override
@@ -28,9 +29,7 @@ class _TabBarDemo extends State<TabBarDemo> {
       home: DefaultTabController(
         length: 3,
         child: Scaffold(
-          appBar: AppBar(
-            title: Text('Tabs Demo'),
-          ),
+
           body: _children[_currentIndex], // new
           bottomNavigationBar: BottomNavigationBar(
             onTap: onTabTapped,
