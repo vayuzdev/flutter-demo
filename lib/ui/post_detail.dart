@@ -1,28 +1,44 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:social/models/circle_image.dart';
-import 'package:social/ui/post_detail.dart';
+import 'package:social/ui/post_comments.dart';
 
-class TrendingItem extends StatefulWidget {
-  final String img;
-  final String title;
-  final String address;
-  final String rating;
+import 'like_page.dart';
 
-  TrendingItem({
-    Key key,
-    @required this.img,
-    @required this.title,
-    @required this.address,
-    @required this.rating,
-  }) : super(key: key);
-
+class PostDetailParent extends StatelessWidget {
   @override
-  _TrendingItemState createState() => _TrendingItemState();
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    PageController controller = PageController(initialPage: 1,keepPage: true);
+
+    return Scaffold(
+      appBar: new AppBar(
+        title: new Text("Post Detail Page"),
+        leading: new Icon(Icons.arrow_back),
+      ),
+      body: new PageView(
+        reverse: true,
+        controller: controller,
+        children: <Widget>[
+          LikePageListing(),
+          PostDetail(),
+          PostComments(),
+        ],
+
+      ),
+    );
+  }
 }
 
-class _TrendingItemState extends State<TrendingItem> {
+class PostDetail extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return new PostDetailPage();
+  }
+}
+
+class PostDetailPage extends State<PostDetail> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,23 +52,15 @@ class _TrendingItemState extends State<TrendingItem> {
                     children: <Widget>[
                       userInfoRow(),
                       ClipRRect(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(4),
-                            topRight: Radius.circular(4),
-                          ),
-                          child: new GestureDetector(
-                            child: Image.asset(
-                              "${widget.img}",
-                              fit: BoxFit.fill,
-                            ),
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => PostDetailParent()),
-                              );
-                            },
-                          )),
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(4),
+                          topRight: Radius.circular(4),
+                        ),
+                        child: Image.asset(
+                          "assets/food5.jpeg",
+                          fit: BoxFit.fill,
+                        ),
+                      ),
                     ],
                   ),
                 ),

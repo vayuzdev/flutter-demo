@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:social/ui/filtered_video_section.dart';
 import 'package:social/ui/restaurants.dart';
 import 'package:social/ui/story.dart';
 import 'package:social/ui/trending_item.dart';
@@ -46,6 +48,7 @@ class _TrendingState extends State<Trending> {
               primary: false,
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
+
               itemCount: restaurants == null ? 0 : restaurants.length,
               itemBuilder: (BuildContext context, int index) {
                 Map restaurant = restaurants[index];
@@ -142,13 +145,22 @@ class _TrendingState extends State<Trending> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(left: 10, right: 10),
-            child: Text("Video",
-                style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w500)),
-          ),
+              padding: EdgeInsets.only(left: 10, right: 10),
+              child: new GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => FilteredVideoSection()),
+                  );
+                },
+                child: Text(
+                  "Video",
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.grey,
+                      fontWeight: FontWeight.w500),
+                ),
+              )),
           Padding(
             padding: EdgeInsets.only(left: 10, right: 10),
             child: Text("Audio",
