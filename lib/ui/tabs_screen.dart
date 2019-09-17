@@ -31,24 +31,24 @@ class _TabBarDemo extends State<TabBarDemo> {
         child: Scaffold(
 
           body: _children[_currentIndex], // new
-          bottomNavigationBar: BottomNavigationBar(
-            onTap: onTabTapped,
-            type: BottomNavigationBarType.fixed,
-            currentIndex: _currentIndex,
-            // this will be set when a new tab is tapped
-            items: [
-              BottomNavigationBarItem(
-                icon: new Icon(Icons.home),
-                title: new Text('Home'),
-              ),
-              BottomNavigationBarItem(
-                icon: new Icon(Icons.mail),
-                title: new Text('Messages'),
-              ),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.person), title: Text('Profile'))
-            ],
-          ),
+//          bottomNavigationBar: BottomNavigationBar(
+//            onTap: onTabTapped,
+//            type: BottomNavigationBarType.fixed,
+//            currentIndex: _currentIndex,
+//            // this will be set when a new tab is tapped
+//            items: [
+//              BottomNavigationBarItem(
+//                icon: new Icon(Icons.home),
+//                title: new Text('Home'),
+//              ),
+//              BottomNavigationBarItem(
+//                icon: new Icon(Icons.mail),
+//                title: new Text('Messages'),
+//              ),
+//              BottomNavigationBarItem(
+//                  icon: Icon(Icons.person), title: Text('Profile'))
+//            ],
+//          ),
         ),
       ),
     );

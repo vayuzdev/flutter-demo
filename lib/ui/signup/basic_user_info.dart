@@ -1,27 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:social/ui/home_page.dart';
-import 'package:social/ui/signup/signup_email.dart';
-import 'package:social/ui/tabs_screen.dart';
+import 'package:social/ui/signup/user_location.dart';
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
+class SignupUserBasicInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -39,7 +20,7 @@ class MainBody extends StatelessWidget {
     // TODO: implement build
     final emailField = new TextFormField(
       decoration: new InputDecoration(
-        labelText: "Enter Email",
+        labelText: "Full Name",
         fillColor: Colors.white,
         border: new OutlineInputBorder(
           borderRadius: new BorderRadius.circular(4.0),
@@ -91,27 +72,15 @@ class MainBody extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => TabBarDemo()),
+                    MaterialPageRoute(builder: (context) => UserLocation()),
                   );
                 },
                 child: Text(
-                  "Login",
+                  "Next",
                   style: TextStyle(
                     color: Colors.blue,
                   ),
                 ))));
-
-    final dontHaveAnAccount = new Padding(
-        padding: EdgeInsets.all(8.0),
-        child: new GestureDetector(
-          child: new Text("Don't have an account?"),
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => SignupEmail()),
-            );
-          },
-        ));
 
     return Scaffold(
         body: SingleChildScrollView(
@@ -139,22 +108,11 @@ class MainBody extends StatelessWidget {
                 SizedBox(
                   height: 15.0,
                 ),
-                new Row(
-                  children: <Widget>[
-                    Expanded(child: SizedBox()),
-                    Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: new Text("Forgot Password?"))
-                  ],
-                ),
-                SizedBox(
-                  height: 15.0,
-                ),
+
                 loginButon,
                 SizedBox(
                   height: 15.0,
                 ),
-                dontHaveAnAccount
               ],
             ),
           ),

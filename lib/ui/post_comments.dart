@@ -41,25 +41,22 @@ class PostCommentsLayout extends State<PostComments> {
         body: Column(mainAxisSize: MainAxisSize.max, children: <Widget>[
       Expanded(
         child: listView(),
-      ), Row(
-            children: <Widget>[
-              Expanded(
-                child: emailField
-              ),
-              IconButton(
-                icon: Icon(Icons.send),
-                onPressed: (){
-                  //do something
-                },
-              )
-            ],
+      ),
+      Row(
+        children: <Widget>[
+          Expanded(child: emailField),
+          IconButton(
+            icon: Icon(Icons.send),
+            onPressed: () {
+              //do something
+            },
           )
+        ],
+      )
     ]));
   }
 
   Widget listView() {
-
-
     return ListView.builder(
       itemBuilder: (context, index) {
         return Padding(

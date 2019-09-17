@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:social/models/circle_image.dart';
 import 'package:social/ui/post_comments.dart';
+import 'package:social/ui/video_player.dart';
 
 import 'like_page.dart';
 
@@ -20,9 +21,10 @@ class PostDetailParent extends StatelessWidget {
         reverse: true,
         controller: controller,
         children: <Widget>[
-          LikePageListing(),
-          PostDetail(),
+
           PostComments(),
+          PostDetail(),
+          LikePageListing(),
         ],
 
       ),
@@ -114,10 +116,21 @@ class PostDetailPage extends State<PostDetail> {
                           height: 55.0,
                           child: Container(
                             height: 55.0,
-                            child: Image.asset(
-                              "assets/play.png",
-                              fit: BoxFit.contain,
-                            ),
+                            child:
+                            new GestureDetector(
+                              child: Image.asset(
+                                "assets/play.png",
+                                fit: BoxFit.contain,
+                              ),
+                              onTap:() {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => VideoPlayer()),
+                                );
+                              },
+                            )
+
                           ),
                         ),
                       )),
