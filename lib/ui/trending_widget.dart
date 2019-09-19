@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:social/ui/filtered_video_section.dart';
+import 'package:social/ui/profile_page.dart';
 import 'package:social/ui/restaurants.dart';
 import 'package:social/ui/story.dart';
 import 'package:social/ui/trending_item.dart';
@@ -131,7 +132,12 @@ class _TrendingState extends State<Trending> {
             padding: EdgeInsets.only(left: 10, right: 10),
             child: IconButton(
               icon: Icon(Icons.supervised_user_circle),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProfilePage()),
+                );
+              },
             ),
           ),
           Padding(

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:social/ui/NetworkCallSample.dart';
 import 'package:social/ui/home_page.dart';
 import 'package:social/ui/signup/signup_email.dart';
 import 'package:social/ui/tabs_screen.dart';
@@ -100,6 +101,23 @@ class MainBody extends StatelessWidget {
                     color: Colors.blue,
                   ),
                 ))));
+ final networkDemo= ButtonTheme(
+        child: new SizedBox(
+            width: double.infinity,
+            child: OutlineButton(
+                borderSide: BorderSide(color: Colors.blue),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => NetworkCallSample()),
+                  );
+                },
+                child: Text(
+                  "Netwrok Demo",
+                  style: TextStyle(
+                    color: Colors.blue,
+                  ),
+                ))));
 
     final dontHaveAnAccount = new Padding(
         padding: EdgeInsets.all(8.0),
@@ -151,6 +169,7 @@ class MainBody extends StatelessWidget {
                   height: 15.0,
                 ),
                 loginButon,
+                networkDemo,
                 SizedBox(
                   height: 15.0,
                 ),
