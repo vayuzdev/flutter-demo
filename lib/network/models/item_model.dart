@@ -46,6 +46,7 @@ class FeedDetails {
   int _maxExperience;
   String _template;
   bool _post_liked;
+  String _postedQuestionId;
 //  List<UserDetails> _userDetails;
 
   String get companyName => _companyName;
@@ -79,6 +80,12 @@ class FeedDetails {
   }
 
 
+  set postedQuestionId(String value) {
+    _postedQuestionId = value;
+  }
+
+  String get postedQuestionId => _postedQuestionId;
+
   FeedDetails(feedDetail) {
     _companyName = feedDetail['company_name'];
     _jobProfile = feedDetail['job_profile'];
@@ -86,6 +93,7 @@ class FeedDetails {
     _maxExperience = feedDetail['max_experience'];
     template = feedDetail['template'];
     _post_liked= feedDetail['post_liked'];
+    _postedQuestionId= feedDetail['posted_question_id'];
 //    userDetails = feedDetails['user_details'];
   }
 

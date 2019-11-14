@@ -24,4 +24,24 @@ class MovieApiProvider {
       throw Exception('Failed to load post');
     }
   }
+
+  Future<ItemModel> fetchFeedDetailBasedOnId(String id) async {
+    print("API Called " );
+    print(id);
+
+    Map data = {
+      'posted_question_id': id
+    };
+    //encode Map to JSON
+
+    final response = await client.post(
+      "https://icbackend.herokuapp.com/fetch_interview_based_on_posted_question_id", headers: headers,body:data );
+    print(response.request.url);
+    print(response.body.toString());
+    if (response.statusCode == 200) {
+      return ItemModel.fromJson(json.decode(response.body));
+    } else {
+      throw Exception('Failed to load post');
+    }
+  }
 }

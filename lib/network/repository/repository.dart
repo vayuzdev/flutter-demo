@@ -6,5 +6,6 @@ class Repository {
   final moviesApiProvider = MovieApiProvider();
 
   Future<ItemModel> fetchAllFeeds() => moviesApiProvider.fetchAllFeeds();
+  Future<ItemModel> fetchFeedDetailBasedOnId(String id) => moviesApiProvider.fetchFeedDetailBasedOnId(id);
 
 }

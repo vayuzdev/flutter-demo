@@ -169,7 +169,7 @@ class MainBody extends StatelessWidget {
                   height: 15.0,
                 ),
                 loginButon,
-                networkDemo,
+                //networkDemo,
                 SizedBox(
                   height: 15.0,
                 ),
